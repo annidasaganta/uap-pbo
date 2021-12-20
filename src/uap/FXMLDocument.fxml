@@ -17,16 +17,15 @@
                <children>
                   <TextField fx:id="txtNoRek" layoutX="34.0" layoutY="80.0" prefHeight="31.0" prefWidth="410.0" promptText="No Rekening" />
                   <TextField fx:id="txtNama" layoutX="34.0" layoutY="120.0" prefHeight="31.0" prefWidth="410.0" promptText="Nama" />
-                  <TextField fx:id="txtPin" layoutX="34.0" layoutY="160.0" prefHeight="31.0" prefWidth="410.0" promptText="PIN" />
-                  <TextField fx:id="txtSaldo" layoutX="34.0" layoutY="201.0" prefHeight="31.0" prefWidth="410.0" promptText="Saldo Awal" />
+                  <TextField fx:id="txtSaldo" layoutX="34.0" layoutY="158.0" prefHeight="31.0" prefWidth="410.0" promptText="Saldo Awal" />
                   <Label layoutX="100.0" layoutY="37.0" text="DAFTARKAN REKENING BARU">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnSubmit" layoutX="34.0" layoutY="249.0" mnemonicParsing="false" onAction="#simpanData" prefHeight="31.0" prefWidth="410.0" text="Save" />
-                  <Button fx:id="btnClear" layoutX="34.0" layoutY="288.0" mnemonicParsing="false" onAction="#clearData" prefHeight="31.0" prefWidth="410.0" text="Clear" />
-                  <Button fx:id="btnRefresh" layoutX="34.0" layoutY="329.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="31.0" prefWidth="410.0" text="Refresh" />
+                  <Button fx:id="btnSubmit" layoutX="34.0" layoutY="206.0" mnemonicParsing="false" onAction="#simpanData" prefHeight="31.0" prefWidth="410.0" text="Save" />
+                  <Button fx:id="btnClear" layoutX="34.0" layoutY="245.0" mnemonicParsing="false" onAction="#clearData" prefHeight="31.0" prefWidth="410.0" text="Clear" />
+                  <Button fx:id="btnRefresh" layoutX="34.0" layoutY="286.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="31.0" prefWidth="410.0" text="Refresh" />
                </children>
             </AnchorPane>
             <TableView fx:id="tblRekening" prefHeight="720.0" prefWidth="821.0">

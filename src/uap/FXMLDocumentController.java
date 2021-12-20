@@ -5,8 +5,10 @@
  */
 package uap;
 
+import db.koneksi;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
@@ -28,41 +31,53 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField txtNama;
     @FXML
-    private TextField txtPin;
-    @FXML
     private TextField txtSaldo;
     @FXML
     private Button btnSubmit;
     @FXML
     private Button btnClear;
     @FXML
-    private TableView<String> tblRekening;
+    private TableView<Rekening> tblRekening;
     @FXML
     private Button btnRefresh;
     @FXML
-    private TableColumn<?, ?> kolomNoRek;
+    private TableColumn<Rekening, String> kolomNoRek;
     @FXML
-    private TableColumn<?, ?> kolomNama;
+    private TableColumn<Rekening, String> kolomNama;
     @FXML
-    private TableColumn<?, ?> kolomSaldo;
+    private TableColumn<Rekening, Double> kolomSaldo;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btnClear.fire();
+        btnRefresh.fire();
     }    
 
     @FXML
     private void simpanData(ActionEvent event) {
+        koneksi d = new koneksi();
         
+        d.addRekening(new Rekening(txtNoRek.getText(), txtNama.getText(), Double.parseDouble(txtSaldo.getText())));
+        
+        btnRefresh.fire();
     }
 
     @FXML
     private void clearData(ActionEvent event) {
-        
+        txtNoRek.setText("");
+        txtNama.setText("");
+        txtSaldo.setText("");
     }
 
     @FXML
     private void refreshData(ActionEvent event) {
+        koneksi d = new koneksi();
+        ObservableList<Rekening> data = d.getRekening();
+        kolomNoRek.setCellValueFactory(new PropertyValueFactory<>("norek"));
+        kolomNama.setCellValueFactory(new PropertyValueFactory<>("nama"));
+        kolomSaldo.setCellValueFactory(new PropertyValueFactory<>("saldo"));
+        tblRekening.setItems(null);
+        tblRekening.setItems(data);
     }
     
 }
